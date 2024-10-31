@@ -4,32 +4,31 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 8.5
 const Gravity = 20
 const MAX_FALL_SPEED = 8.5
-var facing_right=true
+var facing_right = true
 var isJumping = false
-var airVelocity = 0
+var movingRight = false
+var movingLeft = false
 
 func _physics_process(delta):
 	var move_dir = 0
+	var air_dir = 0
 	var just_jump = false
 	var grounded = is_on_floor()
 	
 	move_dir = 0
 	if Input.is_action_pressed("Move_left"):
-		if grounded:
-			move_dir -= 1
-		if isJumping:
-			airVelocity = -5
+		move_dir -= 1
+		movingLeft = true
 	if Input.is_action_pressed("Move_right"):
-		if grounded:
-			move_dir += 1
-		if Input.is_action_pressed("Jump"):
-			airVelocity = 5
-
-	## trying to make the character velocity determined by direction pressed while grounded
-
+		move_dir += 1
+		movingRight = true
+	
 	velocity.y -= Gravity * delta
-	velocity.x = move_dir * SPEED + airVelocity
-		
+	if grounded:
+		velocity.x = move_dir * SPEED
+	if isJumping:
+		velocity.x = air_dir * SPEED
+	
 	move_and_slide()
 	
 	if velocity.y < -MAX_FALL_SPEED:
@@ -38,6 +37,3 @@ func _physics_process(delta):
 		velocity.y = 0.1
 		if Input.is_action_pressed("Jump"):
 			velocity.y = JUMP_VELOCITY
-	if isJumping:
-		velocity.x = airVelocity
-
