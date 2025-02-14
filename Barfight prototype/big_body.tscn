@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://badxprueynjeb"]
+
+[ext_resource type="ArrayMesh" uid="uid://cbciidg3va16n" path="res://FinalBaseMesh.obj" id="1_b6s0f"]
+
+[node name="p1body" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Skeleton3D" type="Skeleton3D" parent="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Skeleton3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("1_b6s0f")
