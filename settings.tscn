@@ -1,0 +1,159 @@
+[gd_scene load_steps=11 format=3 uid="uid://by52r6go0ksvf"]
+
+[ext_resource type="Texture2D" uid="uid://c25h250ckii57" path="res://wall2.png" id="1_65h51"]
+[ext_resource type="Script" uid="uid://8hlbyqkg223b" path="res://SettingsNode.gd" id="1_81ix2"]
+[ext_resource type="FontFile" uid="uid://6kq3p662glb5" path="res://font/hellodenverdisplaybold_v1.6.woff" id="2_8y7ad"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki6od"]
+albedo_texture = ExtResource("1_65h51")
+
+[sub_resource type="BoxMesh" id="BoxMesh_roh6w"]
+material = SubResource("StandardMaterial3D_ki6od")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q27pu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hp2ea"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjem8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5py5e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_unrd5"]
+
+[node name="Settings" type="CanvasLayer"]
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(5.99652, 0, 0, 0, 2.99826, 0, 0, 0, 0.999419, 0, 0, -1.67895)
+mesh = SubResource("BoxMesh_roh6w")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Node3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="Node3D/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="Node3D/SubViewportContainer/SubViewport"]
+current = true
+
+[node name="SettingsNode" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+script = ExtResource("1_81ix2")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsNode"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsNode/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="SettingsNode/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.329412, 0.431373, 1)
+theme_override_colors/font_shadow_color = Color(0.858824, 0.160784, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0.764706, 0, 0.117647, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("2_8y7ad")
+theme_override_font_sizes/font_size = 150
+text = "SETTINGS"
+
+[node name="Audio" type="Button" parent="SettingsNode/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_bottom = NodePath("../Video")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_8y7ad")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q27pu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hp2ea")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jjem8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5py5e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_unrd5")
+text = "AUDIO"
+alignment = 0
+
+[node name="Video" type="Button" parent="SettingsNode/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Audio")
+focus_neighbor_bottom = NodePath("../Controls")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_8y7ad")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q27pu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hp2ea")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jjem8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5py5e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_unrd5")
+text = "VIDEO"
+alignment = 0
+
+[node name="Controls" type="Button" parent="SettingsNode/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Video")
+focus_neighbor_bottom = NodePath("../Back")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_8y7ad")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q27pu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hp2ea")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jjem8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5py5e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_unrd5")
+text = "CONTROLS"
+alignment = 0
+
+[node name="Back" type="Button" parent="SettingsNode/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Controls")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_8y7ad")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q27pu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_hp2ea")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jjem8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5py5e")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_unrd5")
+text = "BACK"
+alignment = 0
+
+[connection signal="pressed" from="SettingsNode/MarginContainer/VBoxContainer/Audio" to="SettingsNode" method="_on_audio_pressed"]
+[connection signal="pressed" from="SettingsNode/MarginContainer/VBoxContainer/Video" to="SettingsNode" method="_on_video_pressed"]
+[connection signal="pressed" from="SettingsNode/MarginContainer/VBoxContainer/Controls" to="SettingsNode" method="_on_controls_pressed"]
+[connection signal="pressed" from="SettingsNode/MarginContainer/VBoxContainer/Back" to="SettingsNode" method="_on_back_pressed"]

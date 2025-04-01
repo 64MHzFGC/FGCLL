@@ -1,0 +1,192 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2xx4njcfseye"]
+
+[ext_resource type="FontFile" uid="uid://6kq3p662glb5" path="res://font/hellodenverdisplaybold_v1.6.woff" id="1_hdmo1"]
+[ext_resource type="Script" uid="uid://bmjai21lgs44a" path="res://pause_menu.gd" id="1_nwcfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nwcfo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_05uyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p81d2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nc7s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3xb4"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.68, 0.68)
+size_flags_horizontal = 4
+script = ExtResource("1_nwcfo")
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -860.0
+offset_top = -440.0
+offset_right = 860.0
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer3"]
+layout_mode = 2
+color = Color(0.407843, 0.407843, 0.407843, 0.705882)
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -810.0
+offset_top = -390.0
+offset_right = 810.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
+layout_mode = 2
+color = Color(0.501961, 0.501961, 0.501961, 0.705882)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -657.5
+offset_top = -493.0
+offset_right = 657.5
+offset_bottom = 493.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 55
+
+[node name="Paused" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.329412, 0.431373, 1)
+theme_override_colors/font_shadow_color = Color(0.858824, 0.160784, 0.317647, 1)
+theme_override_colors/font_outline_color = Color(0.764706, 0, 0.117647, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("1_hdmo1")
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../CharSelect")
+focus_neighbor_bottom = NodePath("../DefaultSettings")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_hdmo1")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d3xb4")
+text = "RESUME"
+alignment = 0
+
+[node name="DefaultSettings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../TrainingSettings")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_hdmo1")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d3xb4")
+text = "GAME SETTINGS"
+alignment = 0
+
+[node name="TrainingSettings" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../DefaultSettings")
+focus_neighbor_bottom = NodePath("../Quit")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_hdmo1")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d3xb4")
+text = "TRAINING MODE SETTINGS"
+alignment = 0
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../TrainingSettings")
+focus_neighbor_bottom = NodePath("../CharSelect")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_hdmo1")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d3xb4")
+text = "QUIT GAME"
+alignment = 0
+
+[node name="CharSelect" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Resume")
+theme_override_colors/font_outline_color = Color(0, 0.537255, 1, 1)
+theme_override_colors/font_color = Color(0, 0.831373, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_hdmo1")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nwcfo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_d3xb4")
+text = "RETURN TO CHARACTER SELECT"
+alignment = 0
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/DefaultSettings" to="." method="_on_default_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TrainingSettings" to="." method="_on_training_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/CharSelect" to="." method="_on_char_select_pressed"]
